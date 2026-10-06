@@ -1,0 +1,997 @@
+/* =========================================================
+   THE OPEN BOOK
+   Main stylesheet
+   ========================================================= */
+
+
+/* =========================================================
+   1. CSS VARIABLES
+   We keep our colors in variables so they are easy to
+   change and keep consistent throughout the website.
+   ========================================================= */
+
+:root {
+  --color-background: #f7f3eb;
+  --color-surface: #fffdf8;
+  --color-surface-dark: #2c2925;
+
+  --color-text: #2c2925;
+  --color-text-light: #756f66;
+
+  --color-accent: #8b4a3c;
+  --color-accent-dark: #68362d;
+
+  --color-border: #ded7ca;
+
+  --shadow-small: 0 4px 15px rgba(44, 41, 37, 0.08);
+  --shadow-large: 0 15px 35px rgba(44, 41, 37, 0.12);
+
+  --radius-small: 8px;
+  --radius-large: 16px;
+
+  --max-width: 1200px;
+}
+
+
+/* =========================================================
+   2. GLOBAL RESET
+   box-sizing: border-box is required by the assignment.
+   It makes width calculations much easier to control.
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* Remove default browser margins */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
+
+  /* A simple system font stack keeps the project
+     independent from external libraries. */
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  line-height: 1.6;
+}
+
+
+/* Make images responsive if we add any later */
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* Make links inherit the visual style */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* Remove default heading margins */
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   3. GENERAL LAYOUT
+   ========================================================= */
+
+.container {
+  width: min(100% - 40px, var(--max-width));
+  margin-inline: auto;
+}
+
+
+/* Small uppercase label used above section headings */
+
+.eyebrow {
+  margin-bottom: 8px;
+
+  color: var(--color-accent);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   4. HEADER
+   Flexbox is used here to align the logo and navigation.
+   ========================================================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  border-bottom: 1px solid var(--color-border);
+
+  background-color: rgba(247, 243, 235, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+
+.header-content {
+  min-height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+
+/* Bookstore logo */
+
+.logo {
+  color: var(--color-text);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+
+/* Navigation */
+
+.main-nav {
+  display: flex;
+  align-items: center;
+
+  gap: 24px;
+}
+
+
+.main-nav a {
+  position: relative;
+
+  color: var(--color-text-light);
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  transition:
+    color 0.2s ease;
+}
+
+
+.main-nav a:hover {
+  color: var(--color-accent);
+}
+
+
+/* Small line underneath navigation links */
+
+.main-nav a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+
+  width: 0;
+  height: 2px;
+
+  background-color: var(--color-accent);
+
+  transition: width 0.2s ease;
+}
+
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   5. HERO
+   ========================================================= */
+
+.hero {
+  padding: 100px 0;
+}
+
+
+.hero-content {
+  min-height: 500px;
+
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  align-items: center;
+
+  gap: 80px;
+}
+
+
+.hero-text h1 {
+  max-width: 700px;
+  margin-bottom: 24px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+
+.hero-description {
+  max-width: 600px;
+  margin-bottom: 32px;
+
+  color: var(--color-text-light);
+
+  font-size: 1.05rem;
+}
+
+
+/* Main button */
+
+.button {
+  display: inline-block;
+
+  padding: 13px 22px;
+
+  border-radius: var(--radius-small);
+
+  background-color: var(--color-accent);
+  color: white;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.button:hover {
+  background-color: var(--color-accent-dark);
+  transform: translateY(-2px);
+}
+
+
+/* Decorative book-of-the-week card */
+
+.hero-card {
+  min-height: 360px;
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  border-radius: var(--radius-large);
+
+  background:
+    linear-gradient(
+      145deg,
+      #a55e4f,
+      #68362d
+    );
+
+  color: white;
+
+  box-shadow: var(--shadow-large);
+
+  transform: rotate(2deg);
+}
+
+
+.hero-card-label {
+  margin-bottom: auto;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+
+.hero-card h2 {
+  margin-bottom: 8px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+
+.hero-card p {
+  margin: 0;
+  opacity: 0.8;
+}
+
+
+/* =========================================================
+   6. SECTION HEADINGS
+   ========================================================= */
+
+.books-section,
+.staff-section,
+.events-section,
+.about-section {
+  padding: 100px 0;
+}
+
+
+.section-heading {
+  max-width: 650px;
+  margin-bottom: 60px;
+}
+
+
+.section-heading h2 {
+  margin-bottom: 16px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+
+.section-heading > p:last-child {
+  color: var(--color-text-light);
+}
+
+
+/* =========================================================
+   7. BOOK CATEGORIES
+   ========================================================= */
+
+.book-category + .book-category {
+  margin-top: 90px;
+}
+
+
+.category-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 25px;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+
+.category-heading h3 {
+  margin-bottom: 15px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.8rem;
+}
+
+
+.category-heading p {
+  margin-bottom: 15px;
+
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   8. BOOK GRID
+   This is the main CSS Grid requirement of the project.
+   ========================================================= */
+
+.book-grid {
+  display: grid;
+
+  /* Four columns on larger screens */
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 24px;
+}
+
+
+/* Individual book card */
+
+.book-card {
+  min-width: 0;
+
+  overflow: hidden;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+
+  background-color: var(--color-surface);
+
+  box-shadow: var(--shadow-small);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-large);
+}
+
+
+/* =========================================================
+   9. BOOK COVERS
+   These are CSS-created covers, so the project doesn't
+   depend on external image files.
+   ========================================================= */
+
+.book-cover {
+  min-height: 280px;
+  padding: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.1;
+
+  letter-spacing: 0.04em;
+}
+
+
+/* Different colors create different book covers */
+
+.cover-one {
+  background: #4a5368;
+}
+
+.cover-two {
+  background: #385c67;
+}
+
+.cover-three {
+  background: #b07c5a;
+}
+
+.cover-four {
+  background: #536b51;
+}
+
+.cover-five {
+  background: #8b4a3c;
+}
+
+.cover-six {
+  background: #6d5b4d;
+}
+
+.cover-seven {
+  background: #5d6478;
+}
+
+.cover-eight {
+  background: #735b48;
+}
+
+
+.book-info {
+  padding: 20px;
+}
+
+
+.book-info h4 {
+  margin-bottom: 5px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+}
+
+
+.author {
+  margin-bottom: 10px;
+
+  color: var(--color-text-light);
+  font-size: 0.85rem;
+}
+
+
+.price {
+  margin: 0;
+
+  color: var(--color-accent);
+
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   10. STAFF PICKS
+   Another Grid layout, but with wider cards.
+   ========================================================= */
+
+.staff-section {
+  background-color: var(--color-surface-dark);
+  color: white;
+}
+
+
+.staff-section .eyebrow {
+  color: #d69b8c;
+}
+
+
+.staff-section .section-heading > p:last-child {
+  color: #bcb6ae;
+}
+
+
+.staff-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+}
+
+
+.staff-card {
+  padding: 30px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-large);
+
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+
+.staff-number {
+  margin-bottom: 30px;
+
+  color: #d69b8c;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+}
+
+
+.staff-card h3 {
+  margin-bottom: 6px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+
+.staff-card .author {
+  color: #d0c8bd;
+}
+
+
+.staff-card > div:last-child > p:last-child {
+  color: #bcb6ae;
+  font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   11. EVENTS
+   Flexbox is used for each event row.
+   ========================================================= */
+
+.events-list {
+  border-top: 1px solid var(--color-border);
+}
+
+
+.event {
+  min-width: 0;
+  padding: 25px 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 30px;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+
+/* Date */
+
+.event-date {
+  flex: 0 0 70px;
+
+  text-align: center;
+}
+
+
+.event-date span {
+  display: block;
+
+  color: var(--color-accent);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+
+.event-date strong {
+  display: block;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+
+/* Event information takes the available space */
+
+.event-info {
+  flex: 1;
+  min-width: 0;
+}
+
+
+.event-type {
+  margin-bottom: 3px;
+
+  color: var(--color-accent);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+
+.event-info h3 {
+  margin-bottom: 4px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.3rem;
+}
+
+
+.event-info p:last-child {
+  margin: 0;
+
+  color: var(--color-text-light);
+  font-size: 0.85rem;
+}
+
+
+/* Event link */
+
+.event-link {
+  flex-shrink: 0;
+
+  color: var(--color-accent);
+
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+
+.event-link:hover {
+  color: var(--color-accent-dark);
+}
+
+
+/* =========================================================
+   12. ABOUT
+   ========================================================= */
+
+.about-section {
+  border-top: 1px solid var(--color-border);
+}
+
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+
+  align-items: center;
+}
+
+
+.about-content h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+
+.about-content > p {
+  margin: 0;
+
+  color: var(--color-text-light);
+  font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   13. FOOTER
+   ========================================================= */
+
+.site-footer {
+  padding: 50px 0;
+
+  background-color: var(--color-surface-dark);
+  color: white;
+}
+
+
+.footer-content {
+  display: grid;
+
+  grid-template-columns: 1fr auto;
+  gap: 30px;
+}
+
+
+.footer-logo {
+  color: white;
+}
+
+
+.footer-content > div:first-child p {
+  margin: 8px 0 0;
+
+  color: #bcb6ae;
+  font-size: 0.85rem;
+}
+
+
+.footer-links {
+  display: flex;
+  align-items: center;
+
+  gap: 24px;
+}
+
+
+.footer-links a {
+  color: #d0c8bd;
+
+  font-size: 0.85rem;
+}
+
+
+.footer-links a:hover {
+  color: white;
+}
+
+
+.copyright {
+  grid-column: 1 / -1;
+
+  margin: 20px 0 0;
+
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+  color: #8e8982;
+
+  font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   14. TABLET
+   At 900px, reduce the number of columns.
+   ========================================================= */
+
+@media (max-width: 900px) {
+  /* Hero becomes a single column */
+  .hero-content {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+  }
+
+  .hero-card {
+    min-height: 280px;
+
+    transform: none;
+  }
+
+
+  /* Books become two columns */
+  .book-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  /* Staff picks become two columns */
+  .staff-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  .about-content {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+}
+
+
+/* =========================================================
+   15. MOBILE
+   At 600px, everything becomes a single-column layout.
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .container {
+    width: min(100% - 28px, var(--max-width));
+  }
+
+
+  /* Header becomes vertically stacked */
+
+  .header-content {
+    padding: 18px 0;
+
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+
+  .main-nav {
+    width: 100%;
+
+    justify-content: center;
+
+    gap: 14px;
+  }
+
+
+  .main-nav a {
+    font-size: 0.75rem;
+  }
+
+
+  /* Reduce hero spacing */
+
+  .hero {
+    padding: 70px 0;
+  }
+
+
+  .hero-content {
+    min-height: auto;
+  }
+
+
+  .hero-text h1 {
+    font-size: clamp(2.7rem, 14vw, 4rem);
+  }
+
+
+  .hero-card {
+    min-height: 250px;
+    padding: 30px;
+  }
+
+
+  /* Section spacing */
+
+  .books-section,
+  .staff-section,
+  .events-section,
+  .about-section {
+    padding: 70px 0;
+  }
+
+
+  /* Category heading becomes vertical */
+
+  .category-heading {
+    display: block;
+  }
+
+
+  /* One book per row */
+
+  .book-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .book-cover {
+    min-height: 300px;
+  }
+
+
+  /* One staff pick per row */
+
+  .staff-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* Event becomes a smaller horizontal layout */
+
+  .event {
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+
+  .event-date {
+    flex-basis: 50px;
+  }
+
+
+  .event-date strong {
+    font-size: 1.5rem;
+  }
+
+
+  .event-info h3 {
+    font-size: 1rem;
+  }
+
+
+  .event-link {
+    display: none;
+  }
+
+
+  /* Footer becomes one column */
+
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+
+  .footer-links {
+    flex-wrap: wrap;
+  }
+
+
+  .copyright {
+    grid-column: auto;
+  }
+}
