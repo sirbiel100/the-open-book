@@ -1,18 +1,8 @@
-import { Plasma } from "@cruxgarden/plasma-ui";
 import SaveToggle from "./SaveToggle.jsx";
 
 export default function BookCard({ book, saved, onSavedChange }) {
   return (
-    <Plasma
-      as="article"
-      lean={false}
-      fuse={false}
-      tint="#f4e8d8"
-      opacity={0.12}
-      frost={0.22}
-      elevation={0.22}
-      className="flex min-w-0 flex-col overflow-hidden rounded-2xl border border-[#ded7ca]/80 bg-[#fffdf8]/70 p-3 shadow-sm transition-transform duration-200 hover:-translate-y-1 sm:p-4"
-    >
+    <div className="flex min-w-0 flex-col overflow-hidden rounded-2xl border border-[#ded7ca]/80 bg-[#fffdf8]/70 p-3 shadow-sm transition-transform duration-200 hover:-translate-y-1 sm:p-4">
       <div className="overflow-hidden rounded-lg bg-[#eee7da]">
         <img
           src={book.image}
@@ -40,6 +30,6 @@ export default function BookCard({ book, saved, onSavedChange }) {
           />
         </div>
       </div>
-    </Plasma>
+    </div>
   );
 }

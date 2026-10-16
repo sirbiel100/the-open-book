@@ -9,16 +9,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <Plasma
-      as="footer"
-      lean={false}
-      fuse={false}
-      tint="#2c2925"
-      opacity={0.12}
-      frost={0.2}
-      elevation={0.15}
-      className="border-t border-[#ded7ca]/80 bg-[#eee7da]/75"
-    >
+    <div className="border-t border-[#ded7ca]/80 bg-[#eee7da]/75">
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-7 px-5 py-9 sm:px-8 md:grid-cols-[1fr_auto] md:items-center lg:px-10">
         <div>
           <a href="#home" className="font-serif text-2xl font-bold tracking-tight text-[#2c2925]">
@@ -37,6 +28,6 @@ export default function Footer() {
           © 2026 The Open Book. Independent and reader-owned.
         </p>
       </div>
-    </Plasma>
+    </div>
   );
 }

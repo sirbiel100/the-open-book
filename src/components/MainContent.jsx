@@ -36,7 +36,9 @@ export default function MainContent() {
   function updateSavedBook(bookId, shouldSave) {
     setSavedBookIds((currentIds) => {
       if (shouldSave) {
-        return currentIds.includes(bookId) ? currentIds : [...currentIds, bookId];
+        return currentIds.includes(bookId)
+          ? currentIds
+          : [...currentIds, bookId];
       }
       return currentIds.filter((id) => id !== bookId);
     });
@@ -44,7 +46,10 @@ export default function MainContent() {
 
   return (
     <main>
-      <section id="books" className="scroll-mt-24 px-5 py-14 sm:px-8 sm:py-20 lg:px-10">
+      <section
+        id="books"
+        className="scroll-mt-24 px-5 py-14 sm:px-8 sm:py-20 lg:px-10"
+      >
         <div className="mx-auto w-full max-w-7xl">
           <SectionHeading
             eyebrow="Browse our shelves"
@@ -69,7 +74,7 @@ export default function MainContent() {
                     className={`min-h-10 rounded-full border px-4 py-2 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8b4a3c] ${
                       isActive
                         ? "border-[#8b4a3c] bg-[#8b4a3c] text-white"
-                        : "border-[#ded7ca] bg-[#fffdf8]/75 text-[#756f66] hover:border-[#8b4a3c] hover:text-[#8b4a3c]"
+                        : "border-[#ded7ca] bg-[#fffdf8]/75 text-[#756f66] hover:border-[#8b4a3c] hover:text-[#8b4a3c] hover:cursor-pointer"
                     }`}
                   >
                     {category}
@@ -78,7 +83,10 @@ export default function MainContent() {
               })}
             </div>
             <p className="text-sm text-[#756f66]" aria-live="polite">
-              Showing <span className="font-bold text-[#2c2925]">{filteredBooks.length}</span>{" "}
+              Showing{" "}
+              <span className="font-bold text-[#2c2925]">
+                {filteredBooks.length}
+              </span>{" "}
               {filteredBooks.length === 1 ? "book" : "books"}
               {savedBookIds.length > 0 && (
                 <span> · {savedBookIds.length} saved</span>
@@ -101,7 +109,10 @@ export default function MainContent() {
         </div>
       </section>
 
-      <section id="staff-picks" className="scroll-mt-24 px-5 py-14 sm:px-8 sm:py-20 lg:px-10">
+      <section
+        id="staff-picks"
+        className="scroll-mt-24 px-5 py-14 sm:px-8 sm:py-20 lg:px-10"
+      >
         <div className="mx-auto w-full max-w-7xl">
           <SectionHeading
             eyebrow="Recommended by us"
@@ -110,17 +121,7 @@ export default function MainContent() {
           />
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {staffPicks.map((pick) => (
-              <Plasma
-                key={pick.id}
-                as="article"
-                lean={false}
-                fuse={false}
-                tint="#ead9c4"
-                opacity={0.12}
-                frost={0.24}
-                elevation={0.2}
-                className="flex min-w-0 gap-4 rounded-2xl border border-[#ded7ca]/80 bg-[#fffdf8]/65 p-5 sm:p-6"
-              >
+              <div className="flex min-w-0 gap-4 rounded-2xl border border-[#ded7ca]/80 bg-[#fffdf8]/65 p-5 sm:p-6">
                 <span className="font-serif text-2xl text-[#8b4a3c]/70">
                   {pick.number}
                 </span>
@@ -133,31 +134,28 @@ export default function MainContent() {
                     {pick.description}
                   </p>
                 </div>
-              </Plasma>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="events" className="scroll-mt-24 px-5 py-14 sm:px-8 sm:py-20 lg:px-10">
+      <section
+        id="events"
+        className="scroll-mt-24 px-5 py-14 sm:px-8 sm:py-20 lg:px-10"
+      >
         <div className="mx-auto w-full max-w-7xl">
           <SectionHeading eyebrow="Come read with us" title="Upcoming Events" />
           <div className="space-y-3">
             {events.map((event) => (
-              <Plasma
-                key={event.id}
-                as="article"
-                lean={false}
-                fuse={false}
-                tint="#ead9c4"
-                opacity={0.1}
-                frost={0.2}
-                elevation={0.16}
-                className="flex min-w-0 flex-col gap-4 rounded-2xl border border-[#ded7ca]/80 bg-[#fffdf8]/65 p-4 sm:flex-row sm:items-center sm:p-5"
-              >
+              <div className="flex min-w-0 flex-col gap-4 rounded-2xl border border-[#ded7ca]/80 bg-[#fffdf8]/65 p-4 sm:flex-row sm:items-center sm:p-5">
                 <div className="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-xl bg-[#8b4a3c]/10 text-[#8b4a3c]">
-                  <span className="text-xs font-bold tracking-widest">{event.month}</span>
-                  <strong className="font-serif text-2xl leading-none">{event.day}</strong>
+                  <span className="text-xs font-bold tracking-widest">
+                    {event.month}
+                  </span>
+                  <strong className="font-serif text-2xl leading-none">
+                    {event.day}
+                  </strong>
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="text-xs font-bold uppercase tracking-widest text-[#8b4a3c]">
@@ -176,23 +174,17 @@ export default function MainContent() {
                 >
                   Details <span aria-hidden="true">→</span>
                 </a>
-              </Plasma>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="about" className="scroll-mt-24 px-5 py-14 sm:px-8 sm:py-20 lg:px-10">
-        <Plasma
-          as="div"
-          lean={false}
-          fuse={false}
-          tint="#ead9c4"
-          opacity={0.12}
-          frost={0.28}
-          elevation={0.2}
-          className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-5 rounded-[1.75rem] border border-[#ded7ca]/80 bg-[#fffdf8]/65 p-6 sm:p-9 md:grid-cols-2 md:items-center md:gap-10 lg:p-12"
-        >
+      <section
+        id="about"
+        className="scroll-mt-24 px-5 py-14 sm:px-8 sm:py-20 lg:px-10"
+      >
+        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-5 rounded-[1.75rem] border border-[#ded7ca]/80 bg-[#fffdf8]/65 p-6 sm:p-9 md:grid-cols-2 md:items-center md:gap-10 lg:p-12">
           <div>
             <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-[#8b4a3c]">
               Our story
@@ -207,7 +199,7 @@ export default function MainContent() {
             carefully select every title and love connecting readers with their
             next great story.
           </p>
-        </Plasma>
+        </div>
       </section>
     </main>
   );

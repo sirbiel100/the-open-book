@@ -19,20 +19,14 @@ export default function Hero() {
             href="#books"
             className="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-[#8b4a3c] px-6 py-3 text-sm font-bold text-white shadow-lg shadow-[#8b4a3c]/15 transition hover:-translate-y-0.5 hover:bg-[#68362d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#8b4a3c]"
           >
-            Explore our books <span aria-hidden="true" className="ml-2">↗</span>
+            Explore our books{" "}
+            <span aria-hidden="true" className="ml-2">
+              ↗
+            </span>
           </a>
         </div>
 
-        <Plasma
-          as="article"
-          lean={false}
-          fuse={false}
-          tint="#ead9c4"
-          opacity={0.17}
-          frost={0.34}
-          elevation={0.38}
-          className="relative mx-auto w-full max-w-xl rounded-[1.75rem] border border-[#ded7ca]/80 bg-[#fffdf8]/65 p-5 shadow-xl shadow-[#2c2925]/5 sm:p-7"
-        >
+        <div className="relative mx-auto w-full max-w-xl rounded-[1.75rem] border border-[#ded7ca]/80 bg-[#fffdf8]/65 p-5 shadow-xl shadow-[#2c2925]/5 sm:p-7">
           <div className="mb-5 flex items-center justify-between gap-3">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#8b4a3c]">
               Book of the week
@@ -65,7 +59,7 @@ export default function Hero() {
               </a>
             </div>
           </div>
-        </Plasma>
+        </div>
       </div>
     </section>
   );
