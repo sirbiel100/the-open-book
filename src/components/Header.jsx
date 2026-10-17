@@ -10,7 +10,7 @@ const links = [
 
 export default function Header() {
   return (
-    <div className="relative z-10 border-b border-[#ded7ca]/80 bg-[#f7f3eb]/75">
+    <div className="fixed w-full backdrop-blur-md z-10 border-b border-[#ded7ca]/80 bg-[#f7f3eb]/75">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 px-5 py-4 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10">
         <a
           href="#home"

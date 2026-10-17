@@ -2,7 +2,7 @@ import { Plasma } from "@cruxgarden/plasma-ui";
 
 export default function Hero() {
   return (
-    <section id="home" className="scroll-mt-28">
+    <section id="home" className="scroll-mt-28 pt-28">
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-5 py-14 sm:px-8 sm:py-20 md:gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:px-10 lg:py-24">
         <div className="max-w-2xl">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#8b4a3c]">
@@ -40,7 +40,7 @@ export default function Hero() {
               <img
                 src="/images/midnight-library.jpg"
                 alt="The Midnight Library by Matt Haig book cover"
-                className="aspect-[2/3] w-full object-contain"
+                className="aspect-[2/3] w-full object-cover"
               />
             </div>
             <div className="min-w-0 py-2">

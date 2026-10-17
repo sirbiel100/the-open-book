@@ -8,7 +8,7 @@ export default function BookCard({ book, saved, onSavedChange }) {
           src={book.image}
           alt={book.alt}
           loading="lazy"
-          className="aspect-[2/3] w-full object-contain"
+          className="aspect-[2/3] w-full object-cover"
         />
       </div>
       <div className="flex flex-1 flex-col pt-4">

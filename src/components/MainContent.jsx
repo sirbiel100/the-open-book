@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Plasma } from "@cruxgarden/plasma-ui";
 import { books, staffPicks, events } from "../data/storeData.js";
 import BookCard from "./BookCard.jsx";
 
