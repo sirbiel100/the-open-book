@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "../../../lib/prisma";
 
-export const dynamic = "force-dynamic";
-
 // A small diagnostic endpoint that confirms both the app and database are reachable.
 export async function GET() {
   try {
