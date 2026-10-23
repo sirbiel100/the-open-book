@@ -13,11 +13,11 @@
     "db:studio": "prisma studio"
   },
   "dependencies": {
-    "@next-auth/prisma-adapter": "^1.0.7",
+    "@auth/prisma-adapter": "^2.11.3",
     "@prisma/client": "6.17.1",
     "bcryptjs": "^3.0.2",
     "next": "16.4.3",
-    "next-auth": "4.24.11",
+    "next-auth": "^5.0.0-beta.32",
     "react": "19.3.1",
     "react-dom": "19.3.1"
   },
