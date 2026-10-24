@@ -144,7 +144,7 @@ export default function AuthForm({ mode }) {
           <button
             disabled={busy}
             type="submit"
-            className="min-h-12 w-full rounded-full bg-[#8b4a3c] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#68362d] disabled:cursor-wait disabled:opacity-60"
+            className="min-h-12 w-full rounded-full bg-[#8b4a3c] px-5 py-3 text-sm font-bold hover:cursor-pointer text-white transition hover:bg-[#68362d] disabled:cursor-wait disabled:opacity-60"
           >
             {busy ? "Please wait…" : isSignup ? "Create account" : "Sign in"}
           </button>
